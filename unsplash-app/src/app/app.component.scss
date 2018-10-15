@@ -1,0 +1,10 @@
+@import "../custom-variables";
+
+.my-contain {
+    display:flex;
+    flex-direction:row;
+    @include transition;
+    @media (max-width:768px) {
+        flex-direction:column;
+    }
+}

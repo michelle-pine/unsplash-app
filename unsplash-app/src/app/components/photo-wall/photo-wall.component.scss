@@ -1,0 +1,125 @@
+@import "../../../custom-variables";
+$pic-size:250px;
+
+.photo-wall {
+  width: calc(100vw - 285px);
+  max-height: 100vh;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+  @include transition;
+
+  .error-card {
+    background: $accent;
+    color: $inverse;
+
+    .card-block {
+      align-items: center;
+
+      .exclaim {
+        text-align: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        align-items: center;
+        font-size: 40px;
+        background: #f26665;
+        margin-right: 15px;
+      }
+    }
+
+
+
+  }
+
+  .photo {
+    padding: 10px;
+    -webkit-animation: fadein 2s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 2s;
+    /* Internet Explorer */
+    -o-animation: fadein 2s;
+    /* Opera < 12.1 */
+    animation: fadein 2s;
+
+    .modal {
+      .modal-dialog {
+        width: auto;
+
+        img {
+          max-width: 100%;
+        }
+
+        .modal-header {
+          background: $accent;
+          color: $inverse;
+          border-bottom: $accent;
+        }
+
+        .btn-primary {
+          background: $accent2;
+          border-color: $accent2;
+        }
+
+        .btn-secondary {
+          color: $inverse;
+        }
+      }
+    }
+
+    .card {
+      @include shadow;
+      width: $pic-size;
+
+      .img-preview {
+        width: 100%;
+        height: $pic-size;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: $pic-size;
+          object-fit: cover;
+          @include transition;
+
+        }
+      }
+
+      .card-body {
+        @include transition;
+        background: $accent2;
+        text-align: center;
+
+        &:hover {
+          background: $accent;
+        }
+
+        a {
+          color: $inverse;
+          text-decoration: none;
+        }
+      }
+
+      @include shadow;
+
+      &:hover {
+        .img-preview {
+          cursor: zoom-in;
+
+          img {
+            width: $pic-size + 20px;
+            height: $pic-size + 20px;
+          }
+        }
+      }
+
+    }
+  }
+
+  @media (max-width:$breakpoint) {
+    width: 100vw;
+    max-height: none;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="photo-wall card-deck p-3">
+  <div class="card error-card" *ngIf="photoData.isError">
+    <div class="card-block d-flex flex-row">
+      <div class="exclaim d-flex"><i class="fas fa-exclamation-circle"></i></div>
+      <p>{{photoData.errorMessage}}</p>
+    </div>
+  </div>
+  <div class="photo" *ngFor="let photo of photoData.photos">
+    <div class="card">
+      <div class="card-img-top img-preview" data-toggle="modal" [attr.data-target]="'#' + photo.id + '-modal'">
+        <img alt={{photo.description}} src={{photo.urls.small}}>
+      </div>
+      <div class="card-body">
+        <a target="_blank" href={{photo.user.links.html}} class="card-text">@{{photo.user.username}}</a>
+      </div>
+    </div>
+    <div class="modal fade" [id]="photo.id + '-modal'" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title">{{photo.description}}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-block">
+            <img alt={{photo.description}} src={{photo.urls.regular}}>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-secondary" data-dismiss="modal">Close</a>
+            <a [attr.href]="photo.links.download + '?force=true'" download class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
