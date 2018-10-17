@@ -15,10 +15,9 @@ export class DataService {
   public photos: Photo[];
   public isError: boolean = false;
   public errorMessage: string;
-  
+
   constructor(private httpClient: HttpClient) {
     this.loadPhotos();
-    
   }
 
   //retrieves the photos from the unsplash api, accepting a number of visible photos
@@ -60,14 +59,13 @@ export class DataService {
 
   //updates the search value
   search(val: string) {
-    if (val &&  val !== "") {
+    console.log(val);
+    if (val && val !== "") {
       this.query = val;
       this.loadPhotos();
-    }
-    else {
+    } else {
       this.query = null;
       this.loadPhotos();
     }
-
   }
 }

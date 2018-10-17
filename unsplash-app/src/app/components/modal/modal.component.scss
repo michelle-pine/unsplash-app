@@ -1,0 +1,44 @@
+@import "../../../custom-variables";
+
+.modal {
+  .modal-dialog {
+    width: auto;
+
+    img {
+      max-width: 100%;
+    }
+
+    .modal-header {
+      background: $accent;
+      color: $inverse;
+      border-bottom: $accent;
+
+      a {
+        color: $inverse;
+      }
+    }
+
+    .modal-block {
+      img {
+        -webkit-animation: fadein 2s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 2s;
+        /* Firefox < 16 */
+        -ms-animation: fadein 2s;
+        /* Internet Explorer */
+        -o-animation: fadein 2s;
+        /* Opera < 12.1 */
+        animation: fadein 2s;
+      }
+    }
+
+    .btn-primary {
+      background: $accent2;
+      border-color: $accent2;
+    }
+
+    .btn-secondary {
+      color: $inverse;
+    }
+  }
+}

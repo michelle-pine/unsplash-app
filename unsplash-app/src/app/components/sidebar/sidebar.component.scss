@@ -1,44 +1,49 @@
 @import "../../../custom-variables";
 
 .sidebar {
-    width:300px;
-    height:100vh;
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    background:$accent;
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  background: $accent;
+  @include transition;
+
+  @media (max-width: $breakpoint) {
+    width: 100vw;
+    height: 300px;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: $inverse;
+    text-align: center;
+
+    i {
+      font-size: 50px;
+    }
+  }
+
+  .input-group-text {
     @include transition;
-    @media (max-width:$breakpoint) {
-        width:100vw;
-        height:300px;
-    }
-    h1 {
-        font-size:20px;
-        color:$inverse;
-        text-align:center;
-        i {
-            font-size:50px;
-        }
-    }
-    .input-group-text {
-        @include transition;
-        background-color: lighten($accent, 10%);
-        border: 1px solid lighten($accent, 10%);
-        color:$inverse;
+    background-color: lighten($accent, 10%);
+    border: 1px solid lighten($accent, 10%);
+    color: $inverse;
 
 
 
+  }
+
+  input:focus,
+  input:valid {
+    +.input-group-append {
+      .input-group-text {
+        background-color: lighten($accent2, 10%);
+        border: 1px solid lighten($accent2, 10%);
+      }
     }
 
-    input:focus, input:valid {
-        + .input-group-append {
-            .input-group-text {
-                background-color: lighten($accent2, 10%);
-                border: 1px solid lighten($accent2, 10%);
-            }
-        }
-       
-    }
+  }
 
 }

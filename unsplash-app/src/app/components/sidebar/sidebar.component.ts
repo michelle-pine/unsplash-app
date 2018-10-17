@@ -1,26 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-
+import { Component, OnInit } from "@angular/core";
+import { DataService } from "../../services/data.service";
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: "app-sidebar",
+  templateUrl: "./sidebar.component.html",
+  styleUrls: ["./sidebar.component.scss"]
 })
+
+/* Sidebar Component */
 export class SidebarComponent implements OnInit {
-  public photos;
-  
-  constructor(private photoData:DataService) { }
+  public val;
+  constructor(private photoData: DataService) {}
 
-  ngOnInit() {
-  
+  ngOnInit() {}
 
+  search(event) {
+    event.preventDefault();
+    this.photoData.search(this.val);
   }
-  
-  search(input:string) {
-
-    this.photoData.search(input);
-    
-  }
-
 }

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PhotoWallComponent } from './photo-wall.component';
+import { PhotoWallComponent } from "./photo-wall.component";
 
-describe('PhotoWallComponent', () => {
+describe("PhotoWallComponent", () => {
   let component: PhotoWallComponent;
   let fixture: ComponentFixture<PhotoWallComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoWallComponent ]
-    })
-    .compileComponents();
+      declarations: [PhotoWallComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PhotoWallComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

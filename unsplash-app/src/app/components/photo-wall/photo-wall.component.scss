@@ -44,30 +44,6 @@ $pic-size:250px;
     /* Opera < 12.1 */
     animation: fadein 2s;
 
-    .modal {
-      .modal-dialog {
-        width: auto;
-
-        img {
-          max-width: 100%;
-        }
-
-        .modal-header {
-          background: $accent;
-          color: $inverse;
-          border-bottom: $accent;
-        }
-
-        .btn-primary {
-          background: $accent2;
-          border-color: $accent2;
-        }
-
-        .btn-secondary {
-          color: $inverse;
-        }
-      }
-    }
 
     .card {
       @include shadow;

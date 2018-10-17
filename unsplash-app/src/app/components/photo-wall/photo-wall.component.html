@@ -1,3 +1,4 @@
+<!--Photo wall component, adapted from the Bootstrap 4 card deck-->
 <div class="photo-wall card-deck p-3">
   <div class="card error-card" *ngIf="photoData.isError">
     <div class="card-block d-flex flex-row">
@@ -5,33 +6,18 @@
       <p>{{photoData.errorMessage}}</p>
     </div>
   </div>
-  <div class="photo" *ngFor="let photo of photoData.photos">
+  <div (click)="modal.addPhoto(photo)" class="photo" *ngFor="let photo of photoData.photos">
     <div class="card">
-      <div class="card-img-top img-preview" data-toggle="modal" [attr.data-target]="'#' + photo.id + '-modal'">
+      <div class="card-img-top img-preview" data-toggle="modal" [attr.data-target]="'#downloadModal'">
         <img alt={{photo.description}} src={{photo.urls.small}}>
       </div>
-      <div class="card-body">
-        <a target="_blank" href={{photo.user.links.html}} class="card-text">@{{photo.user.username}}</a>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <a target="_blank" href={{photo.user.links.html}} class="card-text">
+          <a target="_blank" class="d-flex" href={{photo.user.links.html}}><span class="profile-img"><img alt={{photo.user.username}}
+                src={{photo.user.profile_image.small}}></span>&nbsp;@{{photo.user.username}}</a>
+        </a>
       </div>
     </div>
-    <div class="modal fade" [id]="photo.id + '-modal'" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <p class="modal-title">{{photo.description}}</p>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-block">
-            <img alt={{photo.description}} src={{photo.urls.regular}}>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-secondary" data-dismiss="modal">Close</a>
-            <a [attr.href]="photo.links.download + '?force=true'" download class="btn btn-primary">Download</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
